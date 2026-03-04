@@ -751,7 +751,7 @@ document.querySelectorAll('.filter-btn').forEach(btn => {
 });
 
 // ── TOGGLE EXP
-function toggleExp(card) {
+window.toggleExp = function(card) {
   const body = card.querySelector('.exp-body');
   const isOpen = card.classList.contains('open');
   card.classList.toggle('open', !isOpen);
@@ -836,7 +836,7 @@ const modalData = {
   }
 };
 
-function openModal(key) {
+window.openModal = function openModal(key) {
   const d = modalData[key];
   if (!d) return;
   document.getElementById('modalBody').innerHTML = `
@@ -868,6 +868,6 @@ function openModal(key) {
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal(e) {
+window.closeModal = function closeModal(e) {
   if (!e || e.target === document.getElementById('modalOverlay') || e.target.closest('.modal-close')) {
     document.getElementById('
