@@ -1,4 +1,4 @@
-# Laurent Nave — Technical Product Manager
+# Laurent Nave — Data and Insights Product Manager
 
 > I build data products and AI-powered tools at the intersection of product strategy and hands-on engineering.  
 > Senior PM @ Ogury · AdTech · Audience Intelligence · GenAI
