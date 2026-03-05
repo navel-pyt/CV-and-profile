@@ -106,7 +106,7 @@
     position: relative; margin-bottom: 32px;
     transition: opacity .3s, transform .3s;
   }
-  .exp-card.hidden { opacity: 0; height: 0; overflow: hidden; margin: 0; pointer-events: none; }
+  .exp-card.hidden { display: none; }
   .exp-card::before {
     content: ''; position: absolute; left: -22px; top: 8px;
     width: 8px; height: 8px; border-radius: 50%;
@@ -147,7 +147,7 @@
     transition: max-height .45s cubic-bezier(0.4,0,0.2,1), opacity .3s;
     opacity: 0;
   }
-  .exp-body.open { max-height: 800px; opacity: 1; }
+  .exp-body.open { max-height: 2000px; opacity: 1; }
   .exp-body-inner { padding-top: 14px; }
   .exp-desc { font-size: 13.5px; color: var(--muted); line-height: 1.7; margin-bottom: 12px; }
   .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 6px; }
@@ -243,15 +243,24 @@
   .kpi-label { font-size: 11px; color: var(--muted); margin-top: 2px; }
 
   /* ── SKILLS ── */
-  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 20px; }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 28px; }
   .skill-group { }
-  .skill-group-title { font-size: 12px; font-weight: 600; color: var(--blue); margin-bottom: 12px; letter-spacing: .3px; }
-  .skill-item { margin-bottom: 10px; }
-  .skill-name { font-size: 12.5px; color: var(--text); display: flex; justify-content: space-between; margin-bottom: 4px; }
-  .skill-bar { height: 3px; background: var(--border); border-radius: 2px; overflow: hidden; }
-  .skill-fill {
-    height: 100%; background: linear-gradient(90deg, var(--blue-mid), var(--accent));
-    border-radius: 2px; width: 0; transition: width 1s cubic-bezier(0.4,0,0.2,1);
+  .skill-group-title {
+    font-size: 11px; font-weight: 600; color: var(--blue-mid);
+    letter-spacing: 1.4px; text-transform: uppercase;
+    margin-bottom: 12px; padding-bottom: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tag {
+    padding: 3px 10px; border-radius: 4px; font-size: 12px; font-weight: 500;
+    background: var(--tag-bg); color: var(--tag-color);
+  }
+  .skill-tag.core {
+    background: var(--blue); color: #fff;
+  }
+  .skill-tag.soft {
+    background: #d1fae5; color: #065f46;
   }
 
   /* ── EDUCATION / CERTS ── */
@@ -300,25 +309,8 @@
     <div class="header-top">
       <div class="header-name">
         <h1>Laurent Nave</h1>
-        <div class="tagline">Senior Product Manager · AI & Data Products · 10+ Years</div>
-      </div>
-      <div class="header-links">
-        <a href="https://github.com/navel-pyt" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
-          github.com/navel-pyt
-        </a>
-        <a href="#" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
-          portfolio.laurentnave.com
-        </a>
-        <a href="https://linkedin.com/in/" target="_blank">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
-          LinkedIn
-        </a>
-        <a href="mailto:laurent.nave@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>laurent.nave@gmail.com</a>
-      </div>
-    </div>
-    <div class="header-contact">
+        <div class="tagline">Senior Product Manager · Data & Insights Products · 10+ Years</div>
+        <div class="header-contact">
       <span class="contact-item">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
         (+33) 6.28.55.31.17
@@ -328,6 +320,24 @@
         St. Louis, France · French Citizen · G Permit
       </span>
     </div>
+      </div>
+      <div class="header-links">
+        <a href="https://github.com/navel-pyt" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .3a12 12 0 0 0-3.8 23.4c.6.1.8-.3.8-.6v-2c-3.3.7-4-1.6-4-1.6-.6-1.4-1.4-1.8-1.4-1.8-1-.7.1-.7.1-.7 1.2.1 1.8 1.2 1.8 1.2 1 1.8 2.8 1.3 3.5 1 .1-.8.4-1.3.7-1.6-2.7-.3-5.5-1.3-5.5-5.9 0-1.3.5-2.4 1.2-3.2-.1-.3-.5-1.5.1-3.2 0 0 1-.3 3.3 1.2a11.5 11.5 0 0 1 6 0c2.3-1.5 3.3-1.2 3.3-1.2.6 1.7.2 2.9.1 3.2.8.8 1.2 1.9 1.2 3.2 0 4.6-2.8 5.6-5.5 5.9.4.4.8 1.1.8 2.2v3.3c0 .3.2.7.8.6A12 12 0 0 0 12 .3"/></svg>
+          github.com/navel-pyt
+        </a>
+        <a href="https://navel-pyt.github.io/CV-and-profile/#" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+          portfolio.laurentnave.com
+        </a>
+        <a href="https://www.linkedin.com/in/laurentnave/" target="_blank">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.45 20.45h-3.55v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.36V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.72v20.56C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.72V1.72C24 .77 23.2 0 22.22 0z"/></svg>
+          LinkedIn
+        </a>
+        <a href="mailto:nave.laurent@gmail.com"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><polyline points="2,4 12,13 22,4"/></svg>laurent.nave@gmail.com</a>
+      </div>
+    </div>
+    
   </header>
 
   <!-- EXPERIENCE -->
@@ -338,21 +348,20 @@
     </div>
 
     <div class="filter-bar" id="filterBar">
-      <button class="filter-btn active" data-filter="all">All</button>
-      <button class="filter-btn" data-filter="ai">AI / ML</button>
-      <button class="filter-btn" data-filter="data">Data Products</button>
-      <button class="filter-btn" data-filter="cloud">Cloud / Infra</button>
-      <button class="filter-btn" data-filter="agile">Agile / PM</button>
-      <button class="filter-btn" data-filter="consulting">Consulting</button>
+      <button class="filter-btn active" data-filter="all" onclick="filterExperiences('all', this)">All</button>
+      <button class="filter-btn" data-filter="data-products" onclick="filterExperiences('data-products', this)">Data Products</button>
+      <button class="filter-btn" data-filter="consulting" onclick="filterExperiences('consulting', this)">Consulting</button>
+      <button class="filter-btn" data-filter="adtech" onclick="filterExperiences('adtech', this)">Ad Tech</button>
+      <button class="filter-btn" data-filter="pharma" onclick="filterExperiences('pharma', this)">Pharma</button>
     </div>
 
     <div class="timeline" id="timeline">
 
       <!-- Ogury -->
-      <div class="exp-card active-exp open" data-tags="ai,data,agile" onclick="toggleExp(this)">
-        <div class="exp-header">
+      <div class="exp-card active-exp open" data-tags="data-products,adtech">
+        <div class="exp-header" onclick="toggleExp(this.closest('.exp-card'))">
           <div class="exp-title-block">
-            <div class="exp-role">Senior Product Manager — Data & Insights</div>
+            <div class="exp-role">Confirmed Product Manager — Data & Insights</div>
             <div class="exp-company">Ogury</div>
             <div class="exp-tags">
               <span class="tag">AI/ML</span>
@@ -377,20 +386,21 @@
             <p class="exp-desc">Driving Ogury's data product strategy across four interconnected initiatives — survey infrastructure, geo-based audience targeting, sales enablement tooling, and data marketplace — operating at the intersection of product management and product engineering.</p>
 
             <div style="margin-bottom:14px;">
-              <div style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue-mid);margin-bottom:8px;">Survey Infrastructure & MRC Audit</div>
+              <div style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue-mid);margin-bottom:8px;">Survey Machine Learning & MRC Audit</div>
               <ul class="exp-bullets">
-                <li>Industrialized an internal survey PoC into a production-grade stack — defined QA requirements, coordinated engineering for data table delivery, and collaborated with Product Analytics on SQL reporting.</li>
-                <li>Drove MRC audit readiness end-to-end: designed the compliance framework, presented findings to MRC auditors, and managed remediation coordination with engineering teams.</li>
-                <li>Designed survey creative formats and sequential logic to improve respondent retention and signal quality; tracked answer rate, yield, and datapoints per SSP in real time via QA dashboard.</li>
+                <li>Industrialized a data collection method using surveys to qualify the web: defined QA requirements with Product Analytics, coordinated engineering for data table delivery.</li>
+                <li>Drove MRC (Media Rating Council) audit readiness end-to-end: designed the compliance framework and managed remediation coordination with engineering teams.</li>
+                <li>Improved the existing extrapolation model using the long tail method.</li>
+                <li>Designed survey creative formats and sequential logic to improve respondent retention and signal quality; tracked answer rate, yield with A/B tests.</li>
               </ul>
             </div>
 
             <div style="margin-bottom:14px;">
               <div style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue-mid);margin-bottom:8px;">Geo Data & Audience Targeting — 16 Countries (Global)</div>
               <ul class="exp-bullets">
-                <li>Led full product definition for geo-based audience targeting: wrote data requirements, managed vendors, and validated dataset delivery across Census, Mastercard/Visa, INSEE, and Eurostat sources for 16 global markets (US, EU, APAC).</li>
-                <li>Built a 592-persona × 16-country geo association matrix — mapping each persona to its best available ZIP-level signal across 4 data tiers (Mastercard transactional, official stats, hard public registries, geographic gaps). 3,828 associations documented with QA status.</li>
-                <li>Solo-shipped <strong>Geo Insight</strong> — a Flask + Leaflet.js app with 3 interactive dashboards (Combined Personas, Multi-Country, Global Explorer), 32 GeoJSON boundary files, 13-country ZIP data, deployed to Northflank. Enabled sales QA of 200+ personas by country without engineering support.</li>
+                <li>Led full product definition for geo-based audience targeting: wrote data requirements, PoC test delivery across Census health data.</li>
+                <li>Fetched open source data from official statistics portal × 16-country usable for targeting. 3,828 associations documented with QA status.</li>
+                <li>Solo-shipped <strong>Geo Insight</strong> — an interactive dashboard to enabled sales QA of 200+ personas by country without engineering support.</li>
                 <li>Used Python and SQL independently (augmented by AI) for statistical QA: distribution analysis, correlation avoidance, z-score validation before data purchase decisions.</li>
                 <li>Go-to-market with sales teams delivered <strong>+15% average reach uplift</strong> across 16 markets.</li>
               </ul>
@@ -399,25 +409,19 @@
             <div style="margin-bottom:14px;">
               <div style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue-mid);margin-bottom:8px;">SalesPitch & DATOS Brand Explorer — Agentic AI Tooling</div>
               <ul class="exp-bullets">
-                <li>Built <strong>SalesPitch</strong>: a Flask-based agentic pipeline — upload a campaign brief → Gemini 2.0 decodes signals → Ogury personas scored via TF-IDF + AI → ZIP-level geo signals pulled from local DuckDB cache → DATOS clickstream enriches brand intelligence → sales asset exported (Hook Email, Pitch Script, 10-slide deck, 3-act narrative).</li>
-                <li>Built <strong>DATOS Brand Explorer</strong>: a Streamlit app querying 3 proprietary S3 feeds (DAF activity, RIF retail/purchase, SEF search) via DuckDB, with Sankey user journey diagrams, behavior funnels, lookalike site analysis, and category benchmarks — all US-filtered.</li>
-                <li>Both tools deliberately scoped as <em>high-fidelity prototypes on real data samples</em> — architected for engineering handoff, with documented structure, requirements.txt, and deployment configs. Goal: compress the 0→validated-concept cycle as a solo PM.</li>
-                <li>Presented SalesPitch internally; pending engineering go for production scale-up with full ClickHouse integration.</li>
+                <li>Built <strong>SalesPitch</strong>: an agentic pipeline — upload a campaign brief → Gemini 2.0 decodes signals → sales asset exported (Hook Email, ElevatorPitch Script, 10-slide deck, 3-act narrative).</li>
+                <li>Built <strong>Clickstream Brand Explorer</strong>: an interactive dashboard with Sankey user journey diagrams, behavior funnels, lookalike site analysis, and category benchmarks.</li>
+                <li>Both tools deliberately scoped as <em>high-fidelity prototypes on real data samples</em> — architected for engineering handoff, with documented structure, requirements, and deployment configs.</li>
               </ul>
             </div>
 
-            <div>
-              <div style="font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--blue-mid);margin-bottom:8px;">Data Marketplace (Discovery)</div>
-              <ul class="exp-bullets">
-                <li>Defining a self-serve intelligence layer for sales — closing the agentic AI loop: brief → insights → Salesforce KPIs → delivery metrics → agency audit feedback.</li>
-              </ul>
-            </div></div>
-        </div>
-      </div>
+          </div><!-- /exp-body-inner -->
+        </div><!-- /exp-body -->
+      </div><!-- /exp-card Ogury -->
 
       <!-- CitizenAnalytics -->
-      <div class="exp-card" data-tags="ai,consulting,agile" onclick="toggleExp(this)">
-        <div class="exp-header">
+      <div class="exp-card" data-tags="consulting">
+        <div class="exp-header" onclick="toggleExp(this.closest('.exp-card'))">
           <div class="exp-title-block">
             <div class="exp-role">Founder & Consultant — Digital Product & AI Innovation</div>
             <div class="exp-company">CitizenAnalytics</div>
@@ -450,8 +454,8 @@
       </div>
 
       <!-- Roche Analytics -->
-      <div class="exp-card" data-tags="data,agile" onclick="toggleExp(this)">
-        <div class="exp-header">
+      <div class="exp-card" data-tags="data-products,pharma">
+        <div class="exp-header" onclick="toggleExp(this.closest('.exp-card'))">
           <div class="exp-title-block">
             <div class="exp-role">IT Product Manager — Commercial Data & Analytics</div>
             <div class="exp-company">Roche Ltd — Pharma Informatics</div>
@@ -485,8 +489,8 @@
       </div>
 
       <!-- Roche Cloud -->
-      <div class="exp-card" data-tags="cloud,agile" onclick="toggleExp(this)">
-        <div class="exp-header">
+      <div class="exp-card" data-tags="pharma">
+        <div class="exp-header" onclick="toggleExp(this.closest('.exp-card'))">
           <div class="exp-title-block">
             <div class="exp-role">IT Product Owner — Finance Public Cloud</div>
             <div class="exp-company">Roche Ltd — GIS Infrastructure Services</div>
@@ -519,8 +523,8 @@
       </div>
 
       <!-- Roche ITSM -->
-      <div class="exp-card" data-tags="agile" onclick="toggleExp(this)">
-        <div class="exp-header">
+      <div class="exp-card" data-tags="pharma">
+        <div class="exp-header" onclick="toggleExp(this.closest('.exp-card'))">
           <div class="exp-title-block">
             <div class="exp-role">Project Coordinator — Application Readiness</div>
             <div class="exp-company">Roche Ltd — GIS Application Services</div>
@@ -559,31 +563,6 @@
       <div class="section-line"></div>
     </div>
     <div class="projects-grid">
-
-      <div class="project-card" data-modal="salespitch">
-        <div class="project-thumb" style="background:#0a0a14;padding:0;">
-          <img src="cv-images/salespitch.png" style="width:100%;height:100%;object-fit:cover;object-position:top;" alt="SalesPitch dark UI"/>
-        </div>
-        <div class="project-info">
-          <div class="project-name">SalesPitch — Agentic AI Insights</div>
-          <div class="project-company">Ogury · Solo Product Engineering · 2024–2025</div>
-          <div class="project-desc">End-to-end agentic tool: upload a campaign brief → Gemini decodes signals → audience segments recommended → geo-confirmed → sales asset generated. DuckDB + ClickHouse + Python + Gemini API.</div>
-          <a href="https://github.com/navel-pyt" class="project-link" target="_blank" onclick="event.stopPropagation()">View on GitHub →</a>
-        </div>
-      </div>
-
-      <div class="project-card" data-modal="survey-infra">
-        <div class="project-thumb" style="background:#0d1117;padding:0;">
-          <img src="cv-images/survey-infra.png" style="width:100%;height:100%;object-fit:cover;object-position:top;" alt="Survey Dashboard MRC"/>
-        </div>
-        <div class="project-info">
-          <div class="project-name">Survey Infrastructure & MRC Audit</div>
-          <div class="project-company">Ogury · 2024 · 20M+ responses</div>
-          <div class="project-desc">Industrialized PoC into production-grade survey stack. Built QA dashboard (Vault), coordinated MRC audit end-to-end — answer rate, yield rate, datapoints per SSP tracked in real time.</div>
-          <a href="#" class="project-link" onclick="event.stopPropagation()">Portfolio →</a>
-        </div>
-      </div>
-
       <div class="project-card" data-modal="ml-model">
         <div class="project-thumb" style="background:#0a0a14;padding:0;">
           <img src="cv-images/geo-targeting.png" style="width:100%;height:100%;object-fit:cover;object-position:top;" alt="Geo US map"/>
@@ -592,13 +571,38 @@
           <div class="project-name">Geo Data & Audience Targeting</div>
           <div class="project-company">Ogury · 16 countries (Global) · 2024</div>
           <div class="project-desc">Product definition, vendor management, statistical QA (z-scores, correlations) across Census, Mastercard/Visa, INSEE datasets. Solo-built GeoJSON viz tool for sales QA of 200+ personas. +15% reach uplift.</div>
-          <a href="https://github.com/navel-pyt" class="project-link" target="_blank" onclick="event.stopPropagation()">View on GitHub →</a>
+          <a href="https://github.com/navel-pyt/Geo-Insights-map" class="project-link" target="_blank" onclick="event.stopPropagation()">View on GitHub →</a>
+        </div>
+      </div>
+      <div class="project-card" data-modal="salespitch">
+        <div class="project-thumb" style="background:#0a0a14;padding:0;">
+          <img src="cv-images/Tips-to-Prepare-for-a-Mock-Sales-Pitch-Interview.webp" style="width:100%;height:100%;object-fit:cover;object-position:top;" alt="SalesPitch dark UI"/>
+        </div>
+        <div class="project-info">
+          <div class="project-name">SalesPitch — Agentic AI Insights</div>
+          <div class="project-company">Ogury · Solo Product Engineering · 2024–2025</div>
+          <div class="project-desc">End-to-end agentic tool: upload a campaign brief → Gemini decodes signals → audience segments recommended → geo-confirmed → sales asset generated. DuckDB + ClickHouse + Python + Gemini API.</div>
+          <a href="https://github.com/navel-pyt/Sales_Pitch" class="project-link" target="_blank" onclick="event.stopPropagation()">View on GitHub →</a>
         </div>
       </div>
 
+      <div class="project-card" data-modal="survey-infra">
+        <div class="project-thumb" style="background:#0d1117;padding:0;">
+          <img src="cv-images/surveymodel.png" style="width:100%;height:100%;object-fit:cover;object-position:top;" alt="Survey Dashboard MRC"/>
+        </div>
+        <div class="project-info">
+          <div class="project-name">Survey Infrastructure & MRC Audit</div>
+          <div class="project-company">Ogury · 2024 · 20M+ responses</div>
+          <div class="project-desc">Industrialized PoC into production-grade survey stack. Built QA dashboard (Vault), coordinated MRC audit end-to-end — answer rate, yield rate, datapoints per SSP tracked in real time.</div>
+          
+        </div>
+      </div>
+
+
+
       <div class="project-card" data-modal="data-marketplace">
         <div class="project-thumb" style="background:#f5f5f7;padding:12px;display:flex;align-items:center;justify-content:center;">
-          <img src="cv-images/data-marketplace.png" style="width:90%;height:90%;object-fit:contain;" alt="Data Marketplace diagram"/>
+          <img src="cv-images/AWS-Data-Marketplace-1.png" style="width:100%;height:100%;object-fit:cover;object-position:top;" alt="Data Marketplace diagram"/>
         </div>
         <div class="project-info">
           <div class="project-name">Data Marketplace — Product Vision</div>
@@ -623,56 +627,92 @@
     </div>
   </div>
 
+  <!-- SKILLS -->
   <div class="section">
-  <div class="section-header">
-    <span class="section-title">Expertise & Skills</span>
-    <div class="section-line"></div>
+    <div class="section-header">
+      <span class="section-title">Skills & Expertise</span>
+      <div class="section-line"></div>
+    </div>
+    <div class="skills-grid" id="skillsGrid">
+
+      <div class="skill-group">
+        <div class="skill-group-title">Product Management</div>
+        <div class="skill-tags">
+          <span class="skill-tag core">Product Strategy & Vision</span>
+          <span class="skill-tag core">Agile / Scrum / SAFe</span>
+          <span class="skill-tag core">OKR & Roadmapping</span>
+          <span class="skill-tag core">Stakeholder Alignment</span>
+          <span class="skill-tag">Go-to-Market</span>
+          <span class="skill-tag">User Discovery</span>
+          <span class="skill-tag">KANBAN</span>
+          <span class="skill-tag">ITSM</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Data & Analytics</div>
+        <div class="skill-tags">
+          <span class="skill-tag core">Python (stats & analysis)</span>
+          <span class="skill-tag core">SQL</span>
+          <span class="skill-tag core">Statistical Analysis</span>
+          <span class="skill-tag core">Data QA & Validation</span>
+          <span class="skill-tag">Tableau</span>
+          <span class="skill-tag">Omni / Metabase</span>
+          <span class="skill-tag">ClickHouse</span>
+          <span class="skill-tag">Redshift</span>
+          <span class="skill-tag">DuckDB</span>
+          <span class="skill-tag">Audience Segmentation</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">Engineering & AI</div>
+        <div class="skill-tags">
+          <span class="skill-tag core">Agentic AI Pipelines</span>
+          <span class="skill-tag core">GenAI / LLM Products</span>
+          <span class="skill-tag">Flask / Streamlit</span>
+          <span class="skill-tag">GeoJSON / Leaflet.js</span>
+          <span class="skill-tag">Firebase</span>
+          <span class="skill-tag">Git / GitHub</span>
+          <span class="skill-tag">Gemini API</span>
+          <span class="skill-tag">OpenAI API</span>
+          <span class="skill-tag">Cloud FinOps (AWS / Azure)</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-title">UX & Design</div>
+        <div class="skill-tags">
+          <span class="skill-tag core">UX Architecture</span>
+          <span class="skill-tag core">Storytelling & Narrative</span>
+          <span class="skill-tag">Figma</span>
+          <span class="skill-tag">Design Thinking</span>
+          <span class="skill-tag">Rapid Prototyping</span>
+          <span class="skill-tag">Google Workspace</span>
+          <span class="skill-tag">MS Office Suite</span>
+        </div>
+      </div>
+
+      <div class="skill-group" style="grid-column: span 2;">
+        <div class="skill-group-title">Soft Skills</div>
+        <div class="skill-tags">
+          <span class="skill-tag soft">Compassionate</span>
+          <span class="skill-tag soft">Doer</span>
+          <span class="skill-tag soft">Resilient</span>
+          <span class="skill-tag soft">Decomplexifier</span>
+          <span class="skill-tag soft">Agile Mindset</span>
+          <span class="skill-tag soft">Creative Problem Solving</span>
+          <span class="skill-tag soft">Fast Decision Making</span>
+          <span class="skill-tag soft">Storytelling</span>
+          <span class="skill-tag soft">Adaptability</span>
+          <span class="skill-tag soft">Customer Management</span>
+          <span class="skill-tag soft">Teamwork</span>
+          <span class="skill-tag soft">Experimenter</span>
+        </div>
+      </div>
+
+    </div>
   </div>
-
-  <div class="skills-grid">
-    
-    <div class="skill-group">
-      <div class="skill-group-title">AI & Data</div>
-      <div class="skill-tags">
-        <span class="tag high">Machine Learning (applied)</span>
-        <span class="tag high">GenAI / LLM Products</span>
-        <span class="tag high">Data Strategy</span>
-        <span class="tag">Audience Segmentation</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-title">Engineering & Tools</div>
-      <div class="skill-tags">
-        <span class="tag">Python / SQL</span>
-        <span class="tag">REST APIs / Firebase</span>
-        <span class="tag">OpenAI API</span>
-        <span class="tag">Cloud (AWS / Azure)</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-title">Product Management</div>
-      <div class="skill-tags">
-        <span class="tag high">Product Strategy</span>
-        <span class="tag high">Agile / Scrum</span>
-        <span class="tag">OKR / Roadmapping</span>
-        <span class="tag high">Stakeholder Alignment</span>
-      </div>
-    </div>
-
-    <div class="skill-group">
-      <div class="skill-group-title">Design & UX</div>
-      <div class="skill-tags">
-        <span class="tag">UX Architecture</span>
-        <span class="tag">Figma</span>
-        <span class="tag">Design Thinking</span>
-        <span class="tag">Prototyping</span>
-      </div>
-    </div>
-
-  </div>
-</div>
 
   <!-- EDUCATION & CERTS -->
   <div class="section">
@@ -730,28 +770,30 @@
 </button>
 
 <script>
+// ── FILTER
+window.filterExperiences = function(filter, btn) {
+  var btns = document.querySelectorAll('.filter-btn');
+  for (var i = 0; i < btns.length; i++) btns[i].classList.remove('active');
+  if (btn) btn.classList.add('active');
+  var f = (filter || 'all').toLowerCase().trim();
+  var cards = document.querySelectorAll('.exp-card');
+  for (var j = 0; j < cards.length; j++) {
+    var raw = cards[j].getAttribute('data-tags') || '';
+    var tags = raw.toLowerCase().split(',');
+    var show = (f === 'all');
+    for (var k = 0; k < tags.length; k++) {
+      if (tags[k].trim() === f) { show = true; break; }
+    }
+    cards[j].style.display = show ? '' : 'none';
+  }
+};
+
+document.addEventListener('DOMContentLoaded', function() {
 // ── PROJECT CARD CLICKS (event delegation - works after large base64 parsing)
 document.querySelectorAll('.project-card').forEach(card => {
   card.addEventListener('click', function() {
     const key = this.getAttribute('data-modal');
     if (key) openModal(key);
-  });
-});
-
-// ── FILTER
-document.querySelectorAll('.filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    const filter = btn.dataset.filter;
-    document.querySelectorAll('.exp-card').forEach(card => {
-      const tags = card.dataset.tags || '';
-      if (filter === 'all' || tags.includes(filter)) {
-        card.classList.remove('hidden');
-      } else {
-        card.classList.add('hidden');
-      }
-    });
   });
 });
 
@@ -782,24 +824,24 @@ const modalData = {
   'ml-model': {
     title: 'Geo Data & Audience Targeting',
     sub: 'Ogury · Senior PM · 2024 · 16 countries (US, EU, APAC)',
-    problem: 'Ogury needed to add a geo dimension to its audience targeting — aligning programmatic ad delivery to personas by geography. Datasets were fragmented across public and commercial sources; quality and correlation risks had to be managed before any production use.',
-    solution: 'Led end-to-end product definition: vendor management, data requirements, delivery validation. Analyzed statistical distributions using Python and SQL (z-scores, correlation checks, population density vs. income cross-validation), augmented by AI for statistical guidance. Integrated INSEE, US Census, Eurostat, median household income, and payment data (Mastercard, Visa). Solo-built a geo visualization tool — GeoJSON pipelines, ClickHouse table creation, queries, GitHub versioning — to enable sales teams to QA 200+ personas by country.',
-    outcome: 'Launched globally across 16 markets. Geo-enriched targeting delivered +15% average reach uplift. Sales teams autonomously validated personas via the self-built QA tool before launch.',
+    problem: 'Ogury needed to add a geo dimension to its audience targeting — where you live strongly correlates to who you are, and CTV signals are almost exclusively geo-based. Datasets were fragmented across public and commercial sources; quality and correlation risks had to be managed before any production use.',
+    solution: 'Led end-to-end product definition: a platform to ingest and register geo datasets, then associate them to audience segments. Sourced open and commercial data to enrich targeting (INSEE, US Census, Eurostat for median household income; Mastercard for payment signals). Independently built a geo visualization tool — GeoJSON pipelines, ClickHouse tables, queries, GitHub versioning — so sales teams could QA 200+ personas by country.',
+    outcome: 'Launched globally across 16 markets. Geo-enriched targeting delivered an average +15% reach uplift. Sales teams autonomously validated personas via the QA tool before each market launch.',
     kpis: [{ val: '16', label: 'Countries (Global)' }, { val: '+15%', label: 'Reach uplift' }, { val: '200+', label: 'Personas QA\'d' }],
     tags: ['Python', 'SQL', 'GeoJSON', 'ClickHouse', 'GitHub', 'Vendor Management', 'Data QA', 'INSEE', 'Mastercard/Visa'],
-    github: 'https://github.com/navel-pyt'
+    github: 'https://github.com/navel-pyt/Geo-Insights-map'
   },
   'survey-infra': {
     title: 'Survey Infrastructure & MRC Audit',
     sub: 'Ogury · Senior PM · 2024',
-    problem: 'An internal survey PoC existed but was not production-grade. Ogury needed to industrialize it into a reliable, auditable data stack capable of passing MRC certification — a key trust signal for agency buyers.',
+    problem: 'An internal survey product existed but was not production-grade. Ogury needed to industrialize it into a reliable, auditable data stack capable of passing MRC certification — a key trust signal for agency buyers.',
     solution: 'Defined QA requirements and coordinated engineering teams to deliver clean data tables. Worked with Product Analytics on SQL-based reporting pipelines. Designed survey formats (sequential logic, creative ad formats) to improve respondent retention. Led MRC audit preparation: built the compliance framework, presented directly to MRC auditors, and managed remediation findings with engineering.',
-    outcome: 'Passed MRC audit validation, strengthening Ogury\'s market credibility. Industrialized stack processing 20M+ responses with quality controls in place.',
-    kpis: [{ val: '20M+', label: 'Responses processed' }, { val: 'MRC', label: 'Audit passed' }, { val: 'PoC→Prod', label: 'Industrialization' }],
+    outcome: 'Passed MRC audit validation, strengthening Ogury\'s market credibility. Industrialized stack processing 23M+ responses with quality controls in place.',
+    kpis: [{ val: '23M+', label: 'Responses processed' }, { val: 'MRC', label: 'Audit passed' }, { val: 'PoC→Prod', label: 'Industrialization' }],
     tags: ['Survey Design', 'MRC Audit', 'QA Framework', 'SQL', 'Product Analytics', 'Cross-functional'],
     github: null
   },
-  'genai-civic': {
+  'salespitch': {
     title: 'SalesPitch — Agentic AI Tooling',
     sub: 'Ogury · Solo Product Engineering · 2024–2025',
     problem: 'Sales teams relied on manual, Excel-based workflows to build pitch decks and data insights. The process was slow, inconsistent, and disconnected from real production data. The question: how far can a solo PM push toward production to enable commercial teams without waiting for full engineering resourcing?',
@@ -807,17 +849,17 @@ const modalData = {
     outcome: 'Presented internally and validated by sales teams. Pending engineering go for production scale-up. Demonstrated that a PM with the right technical stack can compress the 0→demo cycle significantly.',
     kpis: [{ val: 'Solo', label: 'End-to-end build' }, { val: 'Gemini', label: 'API integrated' }, { val: 'Pending', label: 'Eng scale-up' }],
     tags: ['DuckDB', 'ClickHouse', 'Python', 'Gemini API', 'Agentic AI', 'Product Engineering', 'Sales Enablement'],
-    github: 'https://github.com/navel-pyt'
+    github: 'https://github.com/navel-pyt/Sales_Pitch'
   },
-  'salespitch': {
-    title: 'SalesPitch — Agentic AI Insights',
-    sub: 'Ogury · Solo Product Engineering · 2024–2025 · Internal',
-    problem: 'Sales teams had no fast, data-driven way to build pitches. Every brief required manual Excel joins on local machines, disconnected from Ogury\'s production data. The question: how far can a solo PM push toward production-quality tooling — without waiting for engineering resourcing?',
-    solution: 'Built end-to-end: DuckDB queries ClickHouse production data (z-scores, clickstream, geo signals). Python scripts analyze each data source independently. Gemini API decodes the campaign brief, matches audience segments (surveys, geo, behavioral), and generates sales assets — Hook Email, Pitch Script, Presentation, Storytelling. Full agentic loop: brief in → audience recommended → geo confirmed → asset exported.',
-    outcome: 'Presented internally, validated by sales stakeholders. Pending engineering go for production scale-up. Demonstrated the PM-as-engineer model for rapid internal tooling. 21 personas cached live, 140+ personas accessible, 237 Q&A signals, 6M+ SKUs.',
-    kpis: [{ val: '21', label: 'Personas cached live' }, { val: 'Gemini', label: 'API integrated' }, { val: '4', label: 'Output formats' }],
-    tags: ['DuckDB', 'ClickHouse', 'Python', 'Gemini API', 'Agentic AI', 'Product Engineering', 'Sales Enablement', 'Geo Intelligence'],
-    github: 'https://github.com/navel-pyt'
+  'genai-civic': {
+      title: 'GenAI Legislative Platform',
+    sub: 'CitizenAnalytics · Founder · 2023',
+    problem: 'French deputies and senators face heavy communication and drafting loads with limited staff resources. Generative AI offered a real productivity lever in a constrained institutional context.',
+    solution: 'Co-developed an internal-facing web app using OpenAI API and Firebase. Designed UX architecture and prompt workflows to support legislative text drafting and communication generation. Collaborated with a freelance solutions architect on backend logic.',
+    outcome: 'Delivered a working MVP adopted by lawmakers for drafting assistance. Demonstrated AI product building capability in a complex, non-commercial context.',
+    kpis: [{ val: 'MVP', label: 'Shipped' }, { val: 'OpenAI', label: 'API integrated' }, { val: 'CivicTech', label: 'Sector' }],
+    tags: ['OpenAI API', 'Firebase', 'Figma', 'Python', 'UX Architecture', 'GenAI', 'CivicTech'],
+    github: null
   },
   'data-marketplace': {
     title: 'Data Marketplace — Product Vision',
@@ -830,14 +872,14 @@ const modalData = {
     github: null
   },
   'cloud-finops': {
-    title: 'GenAI Legislative Platform',
-    sub: 'CitizenAnalytics · Founder · 2023',
-    problem: 'French deputies and senators face heavy communication and drafting loads with limited staff resources. Generative AI offered a real productivity lever in a constrained institutional context.',
-    solution: 'Co-developed an internal-facing web app using OpenAI API and Firebase. Designed UX architecture and prompt workflows to support legislative text drafting and communication generation. Collaborated with a freelance solutions architect on backend logic.',
-    outcome: 'Delivered a working MVP adopted by lawmakers for drafting assistance. Demonstrated AI product building capability in a complex, non-commercial context.',
-    kpis: [{ val: 'MVP', label: 'Shipped' }, { val: 'OpenAI', label: 'API integrated' }, { val: 'CivicTech', label: 'Sector' }],
-    tags: ['OpenAI API', 'Firebase', 'Figma', 'Python', 'UX Architecture', 'GenAI', 'CivicTech'],
-    github: 'https://github.com/navel-pyt'
+    title: 'Cloud Financial Governance',
+    sub: 'Roche (via Nextlink GmbH) · Contractor · 2017–2020 · Basel, Switzerland',
+    problem: 'Roche had no unified model to govern cloud access or costs across AWS, GCP, and Azure. Internal teams adopted cloud ad hoc — without naming conventions, tagging, or chargeback visibility.',
+    solution: 'Defined the end-to-end cloud governance framework: access criteria and onboarding questionnaire, architecture review process, naming conventions and tagging strategy. Built the internal chargeback model, consumption reporting, and cost optimization pipeline. Led software licensing strategy — shifting from on-demand to BYOL across major vendors — and represented Roche in SAP and Microsoft governance boards.',
+    outcome: 'Framework adopted across internal cloud consumers. Finance and ops teams trained and transitioned to autonomous cloud management. Licensing strategy reduced exposure on key enterprise software contracts.',
+    kpis: [{ val: '3', label: 'Cloud providers governed (AWS, GCP, Azure)' }, { val: 'BYOL', label: 'Licensing model implemented' }, { val: '2.5 yrs', label: 'Embedded at Roche' }],
+    tags: ['Cloud Governance', 'FinOps', 'AWS', 'GCP', 'Azure', 'Chargeback Modeling', 'BYOL Licensing', 'SAP', 'Microsoft', 'Cost Optimization'],
+    github: null
   }
 };
 
@@ -879,6 +921,7 @@ window.closeModal = function closeModal(e) {
     document.body.style.overflow = '';
   }
 }
+}); // DOMContentLoaded
 </script>
 </body>
 </html>
